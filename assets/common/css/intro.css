@@ -1,0 +1,16 @@
+#btn1 {
+	color: #3b96cf;
+	border: 2px solid #3b96cf;
+}
+#btn1:active {
+	color: #3b96cf7f;
+	border: 2px solid #3b96cf7f;
+}
+#btn2 {
+	color: #dc5042;
+	border: 2px solid #dc5042;
+}
+#btn2:active {
+	color: #dc50427f;
+	border: 2px solid #dc50427f;
+}

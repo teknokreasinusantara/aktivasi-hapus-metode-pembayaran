@@ -1,0 +1,22 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+.hidden-input {
+	font-family: 'password';
+	-webkit-text-security: disc;
+	text-security: disc;
+}
+
+.shown-input {
+	font-family: 'sans-serif';
+	-webkit-text-security: none;
+	text-security: none;
+}
+
+input:focus {
+	outline: none;
+}

